@@ -8,20 +8,23 @@
 Replace anything surrounded by the `< >` symbols._
 
 ## SUMMARY:
- < Provide a short description of your program's functionality. No more than a couple sentences. >
+This program is a simulated fight game using pygame. Enemies move randomly and when they come in contact with the hero, the hero loses health. If enough health is lost, the player loses. If the hero survives, the player wins.
+
 #### Unique Feature
- < Describe the unique feature you added >
+I unsuccessfully attempted to add a play again feature. I was able to successfully add and move the text, but my key.event features were not effective.
 
 ## GRACE DAYS
-Grace days used for this assignment: < # >
+Grace days used for this assignment: 3
 
-Grace days remaining: < # >/5
+Grace days remaining: 0/5
 
 ## KNOWN BUGS AND INCOMPLETE PARTS:
- < What parts of the project you were not able to complete >
+Could not complete my desired feature. I believe the first part was completed correctly.
 
 ## REFERENCES:
- < List any outside resources used >
-
+- Class notes
+- Class resource links
+- Code in the lab already written by professor
+- 
 ## MISCELLANEOUS COMMENTS:
- < Anything you would like the grader to know >
+I believe my feature code is close, hopefully it is enough for partial credit!

@@ -7,6 +7,15 @@ from src import enemy
 
 class Controller:
     def __init__(self, width=640, height=480):
+      """This function adds value to object properties. In this case the object is the screen
+      
+      Parameters:
+        self: This parameter represents the current object of the class
+        width: This parameter is for the screen width value
+        height: This parameter is for the screen width value
+      
+      Returns:
+        This function returns a white screen with the dimensions 640 by 480"""
         pygame.init()
         self.width = width
         self.height = height
@@ -28,6 +37,15 @@ class Controller:
         self.state = "GAME"
 
     def mainLoop(self):
+      """
+      This function runs the gameLoop when true but starts the gameOver function when false
+      
+      Parameters:
+        self: This parameter represents the current object of the class/function
+      
+      Returns:
+        Either the game itself or the game over screen depending on whether it is true or not
+      """
         while True:
             if(self.state == "GAME"):
                 self.gameLoop()
@@ -35,6 +53,15 @@ class Controller:
                 self.gameOver()
 
     def gameLoop(self):
+      """
+      This function is the game itself. This function runs the actual game that is created and calls on the enemy and hero classes to do so.
+
+      Parameters:
+        self: This parameter represents the current object of the class
+
+      Returns:
+        The game between the hero fighting the moving enemies.
+      """
         while self.state == "GAME":
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -71,12 +98,30 @@ class Controller:
             pygame.display.flip()
 
     def gameOver(self):
+      """
+      This function is what occurs when the game is completed. 
+
+      Parameters:
+       self: This parameter represents the current object of the class
+
+      Returns:
+        This function returns a red screen when the hero is defeated and text saying game over. Nothing occurs when the hero survives the attack.
+      """
         self.hero.kill()
-        myfont = pygame.font.SysFont(None, 30)
-        message = myfont.render('Game Over', False, (0, 0, 0))
-        self.screen.blit(message, (self.width / 2, self.height / 2))
+        myfont = pygame.font.SysFont(None, 23)
+        message = myfont.render('Game Over, Would you like to play again? Press y for Yes and n for No', False, (0, 0, 0))
+        self.screen.blit(message, (25, 25))
         pygame.display.flip()
         while True:
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    sys.exit()
+          for event in pygame.event.get():
+            if event.type == pygame.KEYDOWN:
+              if(event.key == pygame.K_n):
+                sys.exit()
+              if(event.key == pygame.K_y):
+                gameLoop()
+            if event.type == pygame.QUIT:
+              sys.exit()
+        pygame.display.flip()        
+                  
+    
+      
